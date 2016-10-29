@@ -1,0 +1,43 @@
+{
+  "name": "red-art",
+  "version": "1.0.0",
+  "description": "Site for RedArt project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IrynaSamoila/redArt.git"
+  },
+  "author": "Stone Panda Studio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IrynaSamoila/redArt/issues"
+  },
+  "homepage": "https://github.com/IrynaSamoila/redArt#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "grunt": "^1.0.1",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "grunt-babel": "^6.0.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
