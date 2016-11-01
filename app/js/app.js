@@ -1,12 +1,14 @@
 'use strict';
 
-import angular from "angular";
-import "angular-ui-router";
-import "angular-route";
+import angular from 'angular';
+import 'angular-ui-router';
+import 'angular-route';
+import 'angular-resource';
 
 angular.module('app', [
 	'ui.router',
-	'ngRoute'
+	'ngRoute',
+	'ngResource'
 ]).config(($stateProvider, $urlRouterProvider) => {
 	$urlRouterProvider.otherwise('/');
 
@@ -15,9 +17,9 @@ angular.module('app', [
 		templateUrl: 'templates/pages/main.html',
 		controller: 'MainController',
 		resolve: {
-			/*Resource: function (Factory) {
+			/* Resource: function (Factory) {
 			 return Factory;
-			 }*/
+			 } */
 		},
 		data: {
 			'title': 'RedArt'
@@ -27,16 +29,16 @@ angular.module('app', [
 		templateUrl: 'templates/pages/adminMain.html',
 		controller: 'AdminMainController',
 		data: {
-		'title': 'Администрирование RedArt'
+			title: 'РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ RedArt'
 		}
-	 })/*.state('top_contributors', {
-	 url: '/top-contributors',
-	 templateUrl: 'templates/pages/topContributors.html',
-	 controller: 'MainController',
-	 data: {
-	 'title': 'Top contributors'
-	 }
-	 })*/
+	}).state('login', {
+		url: '/login',
+		templateUrl: 'templates/pages/login.html',
+		controller: 'LoginController',
+		data: {
+			title: 'РђРІС‚РѕСЂРёР·Р°С†РёСЏ'
+		}
+	});
 });
 
 export default angular.module('app');
