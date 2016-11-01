@@ -1,0 +1,18 @@
+{
+    "extends": "google",
+	"env": {
+        "node": true,
+		"es6": true
+    },
+	"rules": {
+        "new-cap": 1,
+		"comma-dangle": 0,
+		"require-jsdoc": 0,
+		"arrow-parens": 0,
+		"max-len": 0,
+		"linebreak-style": 0
+    },
+	"parserOptions": {
+        "sourceType": "module"
+    }
+}

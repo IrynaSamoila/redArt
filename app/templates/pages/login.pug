@@ -1,0 +1,12 @@
+.row
+	.login-container.col-xs-10.col-xs-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
+		form.full-width(role="form", novalidate)
+			.form-group
+				label(for="email") Email:
+				input.form-control#email(type="email", ng-model="user.email")
+
+			.form-group
+				label(for="password") Пароль:
+				input#password.form-control(type="password", ng-model="user.password")
+
+			button.btn.btn-success(ng-click="login()") Войти

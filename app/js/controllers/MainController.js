@@ -3,7 +3,7 @@
 import module from '../app';
 
 module.controller('MainController', ($scope) => {
-	$scope.name = "Ira";
+	$scope.name = 'Ira';
 });
 
 export default module;
