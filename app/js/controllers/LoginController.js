@@ -8,14 +8,19 @@ module.controller('LoginController', ($scope, LoginFactory) => {
 		password: ''
 	};
 
-	$scope.login = () => {
-		console.log();
+	function successLogin(data) {
 
-		LoginFactory.login($scope.user).$promise.then(() => {
-		})
-		.catch(e => {
-			console.log(e);
-		});
+	}
+
+	function errorLogin(e) {
+		console.log(e);
+	}
+
+	$scope.login = () => {
+		LoginFactory.login($scope.user)
+			.$promise
+			.then(successLogin)
+			.catch(errorLogin);
 	};
 });
 
