@@ -1,12 +1,17 @@
 .row
 	.login-container.col-xs-10.col-xs-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
-		form.full-width(role="form", novalidate)
-			.form-group
+		form.full-width(role="form", novalidate, name="loginForm")
+			.form-group(ng-class="{'has-error': loginForm.login.$dirty && !loginForm.login.$valid}")
 				label(for="email") Email:
-				input.form-control#email(type="email", ng-model="user.email")
+				input.form-control#email(type="email", name="login", ng-model="user.email", ng-model-options="{ debounce: 150 }", required)
 
-			.form-group
+				.help-block(ng-show="loginForm.login.$dirty && loginForm.login.$error.required") Пожалуйста, введите e-mail
+				.help-block(ng-show="loginForm.login.$dirty && loginForm.login.$error.email") Плохой формат e-mail
+				
+			.form-group(ng-class="{'has-error': loginForm.password.$dirty && !loginForm.password.$valid}")
 				label(for="password") Пароль:
-				input#password.form-control(type="password", ng-model="user.password")
+				input#password.form-control(type="password", name="password", ng-model="user.password", ng-model-options="{ debounce: 150 }", required)
+
+				.help-block(ng-show="loginForm.password.$dirty && loginForm.password.$error.required") Пожалуйста, введите пароль
 
 			button.btn.btn-success(ng-click="login()") Войти
