@@ -10,6 +10,6 @@ module.factory('LoginFactory', ['$resource', $resource => {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json; charset=UTF-8'
 			}
-		},
+		}
 	});
 }]);

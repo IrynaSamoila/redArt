@@ -1,9 +1,9 @@
 'use strict';
 
-import module from '../app';
+import module from '../../app';
 
 module.controller('AdminMainController', ($scope) => {
-	$scope.name = '212212';
+	$scope.name = 'AdminMainController';
 });
 
 export default module;
