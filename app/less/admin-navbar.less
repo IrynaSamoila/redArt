@@ -1,5 +1,5 @@
 .navbar-nav li:hover {
-	background-color: #ddd;
+	background-color: @color-navbar-link-hover;
 }
 
 .navbar-brand {
@@ -7,9 +7,7 @@
 }
 
 .header-logo-container {
-	width: 40px;
-	height: 40px;
-	background: url(".././images/logo-mini.png") no-repeat;
+	.image-container(40px, 40px, 0, url(/images/logo-mini.png) no-repeat);
 }
 
 @media (max-width: 991px) {
@@ -57,10 +55,7 @@
 	}
 
 	.header-logo-container {
-		width: 80px;
-		height: 80px;
-		margin: 0 10px;
-		background: url(../images/logo-medium.png) no-repeat;
+		.image-container(80px, 80px, 0 10px, url(/images/logo-medium.png) no-repeat);
 	}
 
 	.navbar-brand {
@@ -116,10 +111,7 @@
 	}
 
 	.header-logo-container {
-		width: 80px;
-		height: 80px;
-		margin: 0 10px;
-		background: url(../images/logo-medium.png) no-repeat;
+		.image-container(80px, 80px, 0 10px, url(/images/logo-medium.png) no-repeat);
 	}
 
 	header nav.navbar.navbar-default.navbar-fixed-top .navbar-collapse {
@@ -127,7 +119,7 @@
 	}
 
 	.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-		border-color: #ccc;
+		border-color: @color-navbar-border-bottom;
 	}
 
 	.navbar-nav li a {
