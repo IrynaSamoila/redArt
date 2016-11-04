@@ -1,0 +1,26 @@
+header#admin-main-page-header
+	nav#header-nav.navbar.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				.navbar-brand
+					a(ui-sref="adminMain")
+						.header-logo-container
+				button#navbar-menu-button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+
+			.collapse.navbar-collapse#collapsable-nav
+				ul.nav.navbar-nav
+					li
+						a.text-center(ui-sref="admin.carousel") Карусель
+					li
+						a.text-center(ui-sref="admin.upcoming") Афиши
+					li
+						a.text-center(ui-sref="admin.gallery") Галерея
+					li
+						a.text-center(ui-sref="admin.contacts") Контакты
+
+#main-content
+	div(ui-view="")

@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 			}
 		},*/
 		clean: ['static'],
-		/*imagemin: {                          // Task
+		imagemin: {                          // Task
 			static: {                          // Target
 				options: {                       // Target options
 					optimizationLevel: 3
@@ -94,11 +94,11 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,                  // Enable dynamic expansion
 					cwd: 'app/images/',                   // Src matches are relative to this path
-					src: ['**!/!*.{png,jpg,gif}'],   // Actual patterns to match
+					src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
 					dest: 'static/images/'                  // Destination path prefix
 				}]
 			}
-		},*/
+		},
 		copy: {
 			main: {
 				files: [
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
 	//grunt.loadNpmTasks('grunt-contrib-uglify');
 	//grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	//grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
@@ -153,5 +153,5 @@ module.exports = function(grunt) {
 	//grunt.registerTask('default', []);
 
 	grunt.registerTask('default', ['build', 'watch']);
-	grunt.registerTask('build', ['clean', 'less', 'pug', 'browserify', 'copy']);
+	grunt.registerTask('build', ['clean', 'less', 'pug', 'imagemin', 'browserify', 'copy']);
 };

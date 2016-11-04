@@ -2,14 +2,14 @@
 
 import module from '../app';
 
-module.controller('LoginController', ($scope, LoginFactory) => {
+module.controller('LoginController', ($scope, $state, LoginFactory) => {
 	$scope.user = {
 		email: '',
 		password: ''
 	};
 
 	function successLogin(data) {
-
+		$state.go('adminMain');
 	}
 
 	function errorLogin(e) {
