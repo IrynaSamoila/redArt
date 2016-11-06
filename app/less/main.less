@@ -4,6 +4,7 @@
 @import "admin";
 @import "admin-navbar";
 @import "login";
+@import "inputs";
 
 * {
   box-sizing: border-box;
@@ -11,4 +12,20 @@
 
 .full-width {
 	width: 100%;
+}
+
+.no-float {
+	float: none;
+}
+
+.hidden-xs {
+	@media only screen and (max-device-width: @screen-xs-max) {
+		.responsive-invisibility();
+	}
+}
+
+.visible-xs {
+	@media only screen and (max-device-width: @screen-xs-max) {
+		.responsive-visibility();
+	}
 }
