@@ -8,4 +8,5 @@ import './controllers/admin/AdminUpcomingController';
 import './controllers/LoginController';
 
 import './factories/LoginFactory';
+import './factories/NotificationFactory';
 

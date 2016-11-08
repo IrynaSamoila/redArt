@@ -5,7 +5,7 @@ import _ from 'lodash';
 import module from '../app';
 import validate from '../validate';
 
-module.controller('LoginController', ($scope, $state, LoginFactory) => {
+module.controller('LoginController', ($scope, $state, LoginFactory, NotificationFactory) => {
 	const constraints = {
 		email: {
 			presence: {
@@ -33,6 +33,11 @@ module.controller('LoginController', ($scope, $state, LoginFactory) => {
 
 	function errorLogin(e) {
 		console.log(e);
+
+		NotificationFactory.showMessage({
+			title: 'Ошибка',
+			text: e && e.statusText ? e.statusText : 'Общая ошибка соединения'
+		});
 	}
 
 	// TODO: Move getErrors into base controller
