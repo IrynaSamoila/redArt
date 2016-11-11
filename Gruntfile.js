@@ -6,7 +6,10 @@ module.exports = function(grunt) {
 				options: {
 					transform: [["babelify", { "presets": ["es2015"] }]],
 					browserifyOptions: {
-						debug: true
+						debug: true,
+						paths: [
+							__dirname
+						]
 					}
 				},
 				files: {
@@ -45,7 +48,13 @@ module.exports = function(grunt) {
 		less: {
 			development: {
 				files: {
-					'static/css/<%= pkg.name %>.css': ['./node_modules/bootstrap/less/bootstrap.less', 'app/less/main.less']
+					'static/css/<%= pkg.name %>.css': [
+						'./node_modules/bootstrap/less/bootstrap.less', 
+						'./node_modules/pnotify/dist/pnotify.css',
+						'./node_modules/pnotify/dist/pnotify.mobile.css',
+						'./node_modules/pnotify/dist/pnotify.buttons.css',
+						'app/less/main.less'
+					]
 				}
 			}
 		},
