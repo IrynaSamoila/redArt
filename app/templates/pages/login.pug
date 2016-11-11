@@ -1,24 +1,23 @@
-.container-fluid
+.container-fluid#login-form
 	.row
 		.login-logo-container
 			img(src="/images/logo.jpg", width="200")
 	.row
 		.login-container.col-xs-10.col-xs-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
 			form.full-width(role="form", novalidate, name="loginForm")
-				.input-group(ng-class="{'has-error': loginForm.login.$dirty && !loginForm.login.$valid}")
+				.input-group(ng-class="{'has-error': errors.email}")
 					span.input-group-addon
 						span.glyphicon.glyphicon-user(aria-hidden="true")
-					input.form-control#email(type="email", name="login", ng-model="user.email", ng-model-options="{ debounce: 150 }", placeholder="Введите email", required)
-				div(ng-class="{'has-error': loginForm.login.$dirty && !loginForm.login.$valid}")
-					.help-block(ng-show="loginForm.login.$dirty && loginForm.login.$error.required") Пожалуйста, введите email
-					.help-block(ng-show="loginForm.login.$dirty && loginForm.login.$error.email") Неверный формат email
+					input.form-control#email(type="email", name="login", ng-model="user.email", placeholder="Введите email", required)
+				div(ng-class="{'has-error': errors.email}")
+					.help-block(ng-show="errors.email") {{errors.email}}
 
-				.input-group(ng-class="{'has-error': loginForm.password.$dirty && !loginForm.password.$valid}")
+				.input-group(ng-class="{'has-error': errors.password}")
 					span.input-group-addon
 						span.glyphicon.glyphicon-lock(aria-hidden="true")
-					input#password.form-control(type="password", name="password", ng-model="user.password", ng-model-options="{ debounce: 150 }", placeholder="Введите пароль", required)
-				div(ng-class="{'has-error': loginForm.password.$dirty && !loginForm.password.$valid}")
-					.help-block(ng-show="loginForm.password.$dirty && loginForm.password.$error.required") Пожалуйста, введите пароль
+					input#password.form-control(type="password", name="password", ng-model="user.password", placeholder="Введите пароль", required)
+				div(ng-class="{'has-error': errors.password}")
+					.help-block(ng-show="errors.password") {{errors.password}}
 
 				.button-container.form-group.text-center
-					button.btn.btn-success(ng-submit="login()") Войти
+					button.btn.btn-success(ng-click="login()") Войти

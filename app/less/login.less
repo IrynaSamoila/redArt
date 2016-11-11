@@ -1,89 +1,19 @@
-.login-container {
-	//margin-top: 10%;
-}
-
 .login-logo-container {
 	text-align: center;
 	margin: 40px 0 10px;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-device-width : @screen-xxs-max) {
-	.login-container {
-		.input-group {
-			padding-top: 25px;
+@media (max-width: @screen-sm-max) and (orientation:landscape) {
+	.login-logo-container {
+		display: none;
+	}
 
-			.input-group-addon:first-child {
-				border-radius: 10px 0 0 10px;
-			}
-
-			.form-control:last-child {
-				border-radius: 0 10px 10px 0;
-			}
-
-			input.form-control, .input-group-addon {
-				height: 120px;
-				font-size: 4.2em;
-				border-width: 2px;
-				padding: 6px 30px;
-			}
-		}
-
-		.has-error .help-block {
-			font-size: 3.2em;
-			font-style: italic;
-		}
-
-		.button-container {
-			margin-top: 40px;
-
-			.btn {
-				font-size: 50px;
-				padding: 15px 35px;
-				border-width: 2px;
-				border-radius: 10px;
-			}
-		}
+	#login-form {
+		.vertical-align;
+		height: 100vh;
 	}
 }
 
-@media only screen and (min-device-width : @screen-xs) and (max-device-width : @screen-xs-max) {
-	.login-container {
-		.input-group {
-			padding-top: 17px;
-
-			.input-group-addon:first-child {
-				border-radius: 6px 0 0 6px;
-			}
-
-			.form-control:last-child {
-				border-radius: 0 6px 6px 0;
-			}
-
-			input.form-control, .input-group-addon {
-				height: 70px;
-				font-size: 2.2em;
-				border-width: 2px;
-				padding: 6px 20px;
-			}
-		}
-
-		.has-error .help-block {
-			font-size: 2em;
-			font-style: italic;
-		}
-
-		.button-container {
-			margin-top: 30px;
-
-			.btn {
-				font-size: 30px;
-				padding: 8px 25px;
-				border-width: 2px;
-				border-radius: 6px;
-			}
-		}
-	}
-}
 
 

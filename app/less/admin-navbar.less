@@ -11,7 +11,6 @@
 }
 
 .navbar-logout {
-	//margin: 8px;
 	position: absolute;
 	top: 8px;
 	right: 15px;
@@ -56,20 +55,25 @@
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media (min-width : @screen-xxs) and (max-width : @screen-xxs-max) {
-	#main-content {
-		margin-top: 180px;
-	}
-
+@media (min-width: @screen-sm) and (max-width: @screen-md-max) and (orientation:portrait) {
 	.header-logo-container {
 		.image-container(80px, 80px, 0 10px, url(/images/logo-medium.png) no-repeat);
 	}
 
 	.navbar-brand {
 		.vertical-align;
-		line-height: 130px;
-		height: 130px;
+		line-height: 90px;
+		height: 90px;
 		padding: 0 15px;
+		font-size: 20px;
+	}
+
+	.navbar-logout {
+		top: 24px;
+		right: 20px;
+	}
+
+	#btn-logout {
 		font-size: 20px;
 	}
 
@@ -82,73 +86,73 @@
 	}
 
 	.navbar-nav li a {
-		line-height: 90px;
-		height: 90px;
+		line-height: 70px;
+		height: 70px;
 		padding-top: 0;
-		font-size: 2.2em;
+		font-size: 1.6em;
 	}
 
 	.navbar-toggle {
-		margin-top: 17px;
-		padding: 25px;
+		margin-top: 13px;
+		padding: 15px;
 		border: 2px solid transparent;
 	}
 
 	.navbar-toggle .icon-bar {
-		width: 90px;
-		height: 6px;
+		width: 70px;
+		height: 4px;
 	}
 
 	.navbar-toggle .icon-bar + .icon-bar {
-		margin-top: 14px;
+		margin-top: 10px;
 	}
+
 }
 
-@media (min-width : @screen-xs) and (max-width : @screen-xs-max) {
-	#main-content {
-		margin-top: 180px;
-	}
-
-	.navbar-brand {
-		.vertical-align;
-		line-height: 100px;
-		height: 100px;
-		padding: 0 15px;
-		font-size: 20px;
+@media (min-width: @screen-sm) and (max-width: @screen-md-max) and (orientation:landscape) {
+	.navbar-nav li a {
+		line-height: 90px;
+		height: 90px;
+		padding-top: 0;
+		font-size: 1.6em;
 	}
 
 	.header-logo-container {
 		.image-container(80px, 80px, 0 10px, url(/images/logo-medium.png) no-repeat);
 	}
 
-	header nav.navbar.navbar-default.navbar-fixed-top .navbar-collapse {
-		max-height: none;
+	.navbar-brand {
+		.vertical-align;
+		line-height: 90px;
+		height: 90px;
+		padding: 0 15px;
+		font-size: 20px;
 	}
 
-	.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-		border-color: @color-navbar-border-bottom;
+	.navbar-logout {
+		top: 24px;
+		right: 20px;
 	}
 
-	.navbar-nav li a {
-		line-height: 70px;
-		height: 70px;
-		padding-top: 0;
-		font-size: 1.7em;
+	#btn-logout {
+		font-size: 20px;
 	}
+}
 
+@media (max-width : @screen-xs-max) {
 	.navbar-toggle {
-		margin-top: 18px;
-		padding: 17px;
+		margin: 5px 15px 4px;
+		padding: 9px;
 		border: 2px solid transparent;
 	}
 
 	.navbar-toggle .icon-bar {
-		width: 60px;
-		height: 4px;
+		width: 35px;
+		height: 2px;
 	}
 
 	.navbar-toggle .icon-bar + .icon-bar {
-		margin-top: 8px;
+		margin-top: 7px;
 	}
 }
 
