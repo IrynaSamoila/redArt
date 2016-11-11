@@ -2,7 +2,7 @@
 
 import _ from 'lodash';
 
-import module from '../app';
+import module from '../../app';
 
 const constraints = {
 	email: {

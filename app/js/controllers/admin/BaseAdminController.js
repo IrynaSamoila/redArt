@@ -2,8 +2,8 @@
 
 import _ from 'lodash';
 
-import module from '../app';
-import validate from '../validate';
+import module from '../../app';
+import validate from '../../validate';
 
 module.controller('BaseAdminController', ($scope, NotificationFactory) => {
 	$scope.hasErrors = false;
