@@ -3,26 +3,26 @@
 import _ from 'lodash';
 
 import module from '../app';
-import validate from '../validate';
+
+const constraints = {
+	email: {
+		presence: {
+			message: 'Пожалуйста, введите e-mail'
+		},
+		email: {
+			message: 'Неправильный формат e-mail'
+		}
+	},
+	password: {
+		presence: {
+			message: 'Пожалуйста, введите пароль'
+		}
+	},
+};
 
 module.controller('LoginController', ($scope, $state, $controller, LoginFactory, NotificationFactory) => {
-	const constraints = {
-		email: {
-			presence: {
-				message: 'Пожалуйста, введите e-mail'
-			},
-			email: {
-				message: 'Неправильный формат e-mail'
-			}
-		},
-		password: {
-			presence: {
-				message: 'Пожалуйста, введите пароль'
-			}
-		},
-	};
+	$controller('BaseAdminController', {$scope: $scope});
 
-	$scope.hasErrors = false;
 	$scope.user = {
 		email: '',
 		password: ''
@@ -41,22 +41,8 @@ module.controller('LoginController', ($scope, $state, $controller, LoginFactory,
 		});
 	}
 
-	// TODO: Move getErrors into base controller
-	function getErrors(data) {
-		let errors = validate(data, constraints);
-
-		$scope.hasErrors = !_.isEmpty(errors);
-		$scope.errors = {};
-
-		_.each(errors, (errorsList, field) => {
-			$scope.errors[field] = errorsList[0];
-		});
-
-		return $scope.hasErrors;
-	}
-
 	$scope.login = () => {
-		if (!getErrors($scope.user)) {
+		if (!$scope.getErrors($scope.user, constraints)) {
 			LoginFactory.login($scope.user)
 				.$promise
 				.then(successLogin)

@@ -1,5 +1,7 @@
 'use strict';
 
+import _ from 'lodash';
+
 import module from '../app';
 import validate from '../validate';
 
@@ -7,7 +9,7 @@ module.controller('BaseAdminController', ($scope, NotificationFactory) => {
 	$scope.hasErrors = false;
 	$scope.errors = {};
 
-	$scope.getErrors = function(data) {
+	$scope.getErrors = function(data, constraints) {
 		let errors = validate(data, constraints);
 
 		$scope.hasErrors = !_.isEmpty(errors);

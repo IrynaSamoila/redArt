@@ -1,5 +1,6 @@
 import 'bootstrap';
 import './controllers/MainController';
+import './controllers/BaseAdminController';
 import './controllers/admin/AdminMainController';
 import './controllers/admin/AdminCarouselController';
 import './controllers/admin/AdminContactsController';
