@@ -52,6 +52,7 @@ module.exports = function(grunt) {
 						'./node_modules/bootstrap/less/bootstrap.less', 
 						'./node_modules/pnotify/dist/pnotify.css',
 						'./node_modules/pnotify/dist/pnotify.mobile.css',
+						'./node_modules/pnotify/dist/pnotify.buttons.css',
 						'app/less/main.less'
 					]
 				}

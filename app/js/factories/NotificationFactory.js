@@ -11,17 +11,18 @@ module.factory('NotificationFactory', [() => {
 		notice.remove();
 	}
 
-	function showMessage({title = '', text = '', hide = false, closeHandler = null} = {}) {
+	function showMessage({title = '', text = '', hide = false, closeHandler = null, buttonCssClass = 'btn-primary', type = null} = {}) {
 		return new PNotify({
 			title: title,
 			text: text,
 			icon: 'glyphicon glyphicon-info-sign',
 			hide: hide,
+			type: type,
 			confirm: {
 				confirm: true,
 				buttons: [{
 					text: 'Ok',
-					addClass: 'btn-primary',
+					addClass: buttonCssClass,
 					click: _.isFunction(closeHandler) ? closeHandler : defaultCloseHandler
 				},
 				null]
@@ -36,7 +37,15 @@ module.factory('NotificationFactory', [() => {
 		});
 	}
 
+	function showError(options = {}) {
+		options.type = 'error';
+		options.buttonCssClass = 'btn-danger';
+
+		return showMessage(options);
+	}
+
 	return {
-		showMessage: showMessage
+		showMessage: showMessage,
+		showError: showError
 	};
 }]);

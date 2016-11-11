@@ -5,7 +5,7 @@ import _ from 'lodash';
 import module from '../app';
 import validate from '../validate';
 
-module.controller('LoginController', ($scope, $state, LoginFactory, NotificationFactory) => {
+module.controller('LoginController', ($scope, $state, $controller, LoginFactory, NotificationFactory) => {
 	const constraints = {
 		email: {
 			presence: {
@@ -22,6 +22,7 @@ module.controller('LoginController', ($scope, $state, LoginFactory, Notification
 		},
 	};
 
+	$scope.hasErrors = false;
 	$scope.user = {
 		email: '',
 		password: ''
@@ -32,11 +33,11 @@ module.controller('LoginController', ($scope, $state, LoginFactory, Notification
 	}
 
 	function errorLogin(e) {
-		console.log(e);
+		let errorMessage = _.get(e, 'data.error', 'Общая ошибка соединения');
 
-		NotificationFactory.showMessage({
+		NotificationFactory.showError({
 			title: 'Ошибка',
-			text: e && e.statusText ? e.statusText : 'Общая ошибка соединения'
+			text: errorMessage
 		});
 	}
 
