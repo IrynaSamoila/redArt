@@ -1,5 +1,9 @@
-#main-content, #admin-main {
-	margin-top: 10%;
+#main-content {
+	margin-top: 60px;
+}
+
+#admin-main {
+	margin-top: 100px;
 }
 
 #admin-main a {
@@ -48,3 +52,89 @@
 	margin-top: 20px;
 }
 
+/* Smartphones (portrait and landscape) ----------- */
+@media (max-width: @screen-xs-max) {
+	#admin-main {
+		margin-top: 20%;
+	}
+
+	.menu-block {
+		width: 130px;
+		height: 130px;
+		border-radius: 3%;
+	}
+
+	.menu-block-name {
+		font-size: 20px;
+	}
+
+	.menu-block .glyphicon {
+		font-size: 40px;
+	}
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+	#admin-main {
+		margin-top: 20%;
+		width: 70%;
+	}
+
+	.menu-block {
+		width: 150px;
+		height: 150px;
+		border-radius: 3%;
+	}
+
+	.menu-block-name {
+		font-size: 23px;
+	}
+
+	.menu-block .glyphicon {
+		font-size: 45px;
+	}
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) and (orientation:portrait) {
+	#main-content {
+		margin-top: 100px;
+	}
+}
+
+@media (max-width: @screen-sm-max) and (orientation:landscape) {
+	#admin-main {
+		margin-top: 15%;
+		width: 70%;
+	}
+
+	.menu-block {
+		width: 150px;
+		height: 150px;
+		border-radius: 3%;
+	}
+
+	.menu-block-name {
+		font-size: 23px;
+	}
+
+	.menu-block .glyphicon {
+		font-size: 45px;
+	}
+
+}
+
+@media (min-width: @screen-md) and (max-width: @screen-md-max) and (orientation:portrait) {
+	#admin-main {
+		width: 70%;
+	}
+}
+
+@media (min-width: @screen-md) and (max-width: @screen-md-max) and (orientation:landscape) {
+	#admin-main {
+		margin-top: 15%;
+		width: 70%;
+	}
+
+	#main-content {
+		margin-top: 100px;
+	}
+}
