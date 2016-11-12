@@ -1,3 +1,15 @@
 .container
 		.row
-			.col-xs-12.col-sm-6.col-lg-3 {{name}}
+			h3.page-title.text-center Администрирование карусели для главной страницы
+			.info-containier.text-center
+				span.glyphicon.glyphicon-info-sign(aria-hidden="true")
+				span.info-text Максимальное количество фотографий &mdash; 5 штук
+
+		.row
+			.col-xs-12.text-center.carousel-item-container(ng-repeat="item in carouselItems")
+				.carousel-img-container
+					img.img-responsive(ng-if="item.isEmpty" src="/images/defaultHorisontal.png")
+					img.img-responsive(ng-if="!item.isEmpty" ng-src="{{item.filename}}")
+				.btn-group
+					button.btn.btn-danger(ng-click="removeItem(item)", ng-disabled="item.isEmpty") Очистить
+					button.btn.btn-success Загрузить новую фотографию

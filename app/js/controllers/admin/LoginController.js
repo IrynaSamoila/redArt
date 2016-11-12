@@ -1,8 +1,7 @@
 'use strict';
 
-import _ from 'lodash';
-
 import module from '../../app';
+import {errorMessages} from '../../globals.js';
 
 const constraints = {
 	email: {
@@ -17,7 +16,7 @@ const constraints = {
 		presence: {
 			message: 'Пожалуйста, введите пароль'
 		}
-	},
+	}
 };
 
 module.controller('LoginController', ($scope, $state, $controller, LoginFactory, NotificationFactory) => {
@@ -32,21 +31,14 @@ module.controller('LoginController', ($scope, $state, $controller, LoginFactory,
 		$state.go('adminMain');
 	}
 
-	function errorLogin(e) {
-		let errorMessage = _.get(e, 'data.error', 'Общая ошибка соединения');
-
-		NotificationFactory.showError({
-			title: 'Ошибка',
-			text: errorMessage
-		});
-	}
-
 	$scope.login = () => {
 		if (!$scope.getErrors($scope.user, constraints)) {
 			LoginFactory.login($scope.user)
 				.$promise
 				.then(successLogin)
-				.catch(errorLogin);
+				.catch(e => {
+					NotificationFactory.showDataError(e, errorMessages.DATA_CONNECTION);
+				});
 		}
 	};
 });
