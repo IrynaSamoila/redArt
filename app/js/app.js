@@ -15,12 +15,6 @@ angular.module('app', [
 	$stateProvider.state('main', {
 		url: '/',
 		templateUrl: 'templates/pages/main.html',
-		controller: 'MainController',
-		resolve: {
-			/* Resource: function (Factory) {
-			 return Factory;
-			 } */
-		},
 		data: {
 			'title': 'RedArt'
 		}
@@ -38,6 +32,14 @@ angular.module('app', [
 		url: '/carousel',
 		templateUrl: 'templates/pages/admin/carousel.html',
 		controller: 'AdminCarouselController',
+		resolve: {
+			Resource: CarouselApi => CarouselApi,
+			carouselItems: (Resource, NotificationFactory) => {
+				return Resource.list({})
+					.$promise
+					.catch(NotificationFactory.showDataError);
+			}
+		},
 		data: {
 			title: 'Карусель изображений'
 		}

@@ -9,3 +9,4 @@ import './controllers/admin/AdminUpcomingController';
 
 import './factories/LoginFactory';
 import './factories/NotificationFactory';
+import './factories/CarouselApi';

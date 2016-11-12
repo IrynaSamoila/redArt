@@ -1,9 +1,10 @@
 @import "mixins";
 @import "variables";
 @import "functions";
-@import "admin";
-@import "admin-navbar";
-@import "login";
+@import "admin/admin";
+@import "admin/admin-navbar";
+@import "admin/login";
+@import "admin/carousel";
 @import "inputs";
 
 * {
@@ -16,5 +17,16 @@
 
 .no-float {
 	float: none;
+}
+
+button,
+button:active,
+button:focus,
+button:hover,
+.btn,
+.btn:active,
+.btn:focus,
+.btn:hover {
+	outline:none !important;
 }
 
