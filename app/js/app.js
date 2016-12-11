@@ -24,10 +24,12 @@ angular.module('app', [
 		controller: 'AdminMainController',
 		data: {
 			title: 'Администрирование RedArt'
-		}
+		},
+		private: true
 	}).state('admin', {
 		url: '/admin',
-		templateUrl: 'templates/pages/admin/header.html'
+		templateUrl: 'templates/pages/admin/header.html',
+		private: true
 	}).state('admin.carousel', {
 		url: '/carousel',
 		templateUrl: 'templates/pages/admin/carousel.html',
@@ -42,34 +44,55 @@ angular.module('app', [
 		},
 		data: {
 			title: 'Карусель изображений'
-		}
+		},
+		private: true
 	}).state('admin.upcoming', {
 		url: '/upcoming',
 		templateUrl: 'templates/pages/admin/upcoming.html',
 		controller: 'AdminUpcomingController',
 		data: {
 			title: 'Афиша'
-		}
+		},
+		private: true
 	}).state('admin.gallery', {
 		url: '/gallery',
 		templateUrl: 'templates/pages/admin/gallery.html',
 		controller: 'AdminGalleryController',
 		data: {
 			title: 'Галлерея'
-		}
+		},
+		private: true
 	}).state('admin.contacts', {
 		url: '/contacts',
 		templateUrl: 'templates/pages/admin/contacts.html',
 		controller: 'AdminContactsController',
 		data: {
 			title: 'Контакты'
-		}
+		},
+		private: true
 	}).state('login', {
 		url: '/login',
 		templateUrl: 'templates/pages/login.html',
 		controller: 'LoginController',
 		data: {
 			title: 'Авторизация'
+		}
+	});
+}).run(($rootScope, $state, UserFactory) => {
+	$rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
+		if (toState.private) {
+			UserFactory.isAuthenticated()
+				.$promise
+				.then(data => {
+					if (!data || !data.auhtenticated) {
+						e.preventDefault();
+						$state.go('login');
+					}
+				})
+				.catch(error => {
+					e.preventDefault();
+					$state.go('login');
+				});
 		}
 	});
 });
