@@ -84,7 +84,7 @@ angular.module('app', [
 			UserFactory.isAuthenticated()
 				.$promise
 				.then(data => {
-					if (!data || !data.auhtenticated) {
+					if (!data || !data.authenticated) {
 						e.preventDefault();
 						$state.go('login');
 					}
