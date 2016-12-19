@@ -15,5 +15,5 @@ const apiProxy = proxy('192.168.0.14:3001/api', {
 app.use("/api/*", apiProxy);
 
 app.listen(3000, () => {
-	console.log('redArt app listening on port 3000!');
+	console.log('Red Art app listening on port 3000!');
 });

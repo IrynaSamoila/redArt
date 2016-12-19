@@ -7,6 +7,7 @@ import './controllers/admin/AdminContactsController';
 import './controllers/admin/AdminGalleryController';
 import './controllers/admin/AdminUpcomingController';
 
+import './factories/CarouselApi';
 import './factories/LoginFactory';
 import './factories/NotificationFactory';
-import './factories/CarouselApi';
+import './factories/UserFactory';
