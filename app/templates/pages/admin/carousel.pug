@@ -6,10 +6,12 @@
 				span.info-text Максимальное количество фотографий &mdash; 5 штук
 
 		.row
+			input(type="file", id="carousel-image-uploader", custom-on-change="uploadImage", class="hidden")
+
 			.col-xs-12.text-center.carousel-item-container(ng-repeat="item in carouselItems")
 				.carousel-img-container
 					img.img-responsive(ng-if="item.isEmpty" src="/images/defaultHorisontal.png")
 					img.img-responsive(ng-if="!item.isEmpty" ng-src="{{item.filename}}")
 				.btn-group
 					button.btn.btn-danger(ng-click="removeItem(item)", ng-disabled="item.isEmpty") Очистить
-					button.btn.btn-success Загрузить новую фотографию
+					button.btn.btn-success(ng-click="triggerUpload(item)") Загрузить новую фотографию

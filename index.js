@@ -9,7 +9,8 @@ app.use(express.static('static'));
 const apiProxy = proxy('192.168.0.14:3001/api', {
 	forwardPath: req => {
 		return url.parse(req.baseUrl).path;
-	}
+	},
+	reqBodyEncoding: null
 });
 
 app.use("/api/*", apiProxy);

@@ -10,4 +10,7 @@ import './controllers/admin/AdminUpcomingController';
 import './factories/CarouselApi';
 import './factories/LoginFactory';
 import './factories/NotificationFactory';
+import './factories/UploadingFactory';
 import './factories/UserFactory';
+
+import './directives/CustomOnChange';
